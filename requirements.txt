@@ -80,6 +80,7 @@ nest-asyncio2==1.7.2
 notebook==7.6.1
 notebook_shim==0.2.4
 numpy==2.5.1
+opencv-python==5.0.0.93
 opt_einsum==3.4.0
 optree==0.19.1
 packaging==26.2
@@ -112,7 +113,7 @@ scikit-learn==1.9.0
 scipy==1.18.0
 seaborn==0.13.2
 Send2Trash==2.1.0
-setuptools==83.0.0
+setuptools==80.10.2
 six==1.17.0
 sklearn-compat==0.1.6
 soupsieve==2.9.1
@@ -120,8 +121,10 @@ stack-data==0.6.3
 tensorboard==2.21.0
 tensorboard-data-server==0.7.2
 tensorflow==2.21.0
+tensorflow-hub==0.16.1
 termcolor==3.3.0
 terminado==0.18.1
+tf_keras==2.21.0
 threadpoolctl==3.6.0
 tinycss2==1.5.1
 tornado==6.5.7
