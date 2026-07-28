@@ -2,128 +2,192 @@
 
 ## Overview
 
-TensorFlow is an open-source machine learning framework developed by Google that enables you to build and train deep learning models at scale. This repository contains examples, tutorials, and projects to help you learn and master TensorFlow.
+A comprehensive collection of TensorFlow tutorials and examples, progressing from fundamental concepts to advanced deep learning techniques. This repository covers neural networks, gradient descent optimization, regularization methods, computer vision, transfer learning, and object detection.
 
-## What is TensorFlow?
+## Prerequisites
 
-TensorFlow is a powerful library for numerical computation and machine learning that uses data flow graphs to represent computations. Key features include:
+- Python 3.13+
+- pip package manager
 
-- **Flexible Architecture**: Works on CPUs, GPUs, and TPUs
-- **Production Ready**: Deploy models in production environments easily
-- **Comprehensive Ecosystem**: Includes Keras, TensorFlow Lite, TensorFlow.js, and more
-- **Research Friendly**: Write custom training loops and build novel architectures
-- **High-Level APIs**: Use Keras for quick prototyping
-- **Distributed Training**: Scale models across multiple devices and servers
-
-## Getting Started
-
-### Installation
+## Installation
 
 ```bash
-# Install TensorFlow
-pip install tensorflow
+# Clone the repository
+git clone https://github.com/your-username/TensorFlow.git
+cd TensorFlow
 
-# For GPU support
-pip install tensorflow[and-cuda]
+# Create virtual environment (recommended)
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Basic Example
+## Key Dependencies
 
-```python
-import tensorflow as tf
-
-# Create a simple neural network
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(128, activation='relu', input_shape=(10,)),
-    tf.keras.layers.Dense(64, activation='relu'),
-    tf.keras.layers.Dense(1, activation='sigmoid')
-])
-
-# Compile the model
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-# Train the model
-model.fit(X_train, y_train, epochs=10, batch_size=32)
-```
-
-## Key Concepts
-
-### Tensors
-
-The fundamental data structure in TensorFlow. Tensors are multi-dimensional arrays that flow through the computation graph.
-
-### Layers
-
-Building blocks for neural networks. Common layers include:
-
-- Dense (fully connected)
-- Conv2D (convolution)
-- LSTM (recurrent)
-- Dropout, BatchNormalization, etc.
-
-### Models
-
-Containers that combine layers. Two approaches:
-
-- **Sequential API**: Simple linear stack of layers
-- **Functional API**: More flexible model architecture
-
-### Training
-
-Process of optimizing model weights using:
-
-- **Loss Functions**: Measure prediction error
-- **Optimizers**: Update weights to minimize loss
-- **Metrics**: Evaluate model performance
-
-## Common Applications
-
-- **Image Classification**: Recognize objects in images
-- **Natural Language Processing**: Text analysis, translation, sentiment analysis
-- **Time Series Prediction**: Forecast future values
-- **Computer Vision**: Object detection, segmentation
-- **Reinforcement Learning**: Train agents through interaction
+| Package | Version | Purpose |
+|---------|---------|---------|
+| TensorFlow | 2.21.0 | Deep learning framework |
+| Keras | 3.15.0 | High-level neural network API |
+| NumPy | 2.5.1 | Numerical computing |
+| Pandas | 3.0.3 | Data manipulation |
+| Matplotlib | 3.11.1 | Data visualization |
+| Scikit-learn | 1.9.0 | Machine learning utilities |
+| OpenCV | 5.0.0.93 | Computer vision operations |
+| Seaborn | 0.13.2 | Statistical data visualization |
 
 ## Repository Structure
 
 ```
 TensorFlow/
-├── README.md           # This file
-├── 1/
-│   ├── 1.ipynb        # TensorFlow notebooks and tutorials
-│   └── data/
-│       └── insurance_data.csv   # Sample datasets
+├── 1/                          # TensorFlow Fundamentals
+│   ├── 1.ipynb                 # MNIST handwritten digit recognition
+│   ├── 2.ipynb                 # Sigmoid function implementation
+│   ├── 3.ipynb                 # Logistic regression from scratch
+│   └── insurance_data.csv      # Sample dataset
+│
+├── 2/                          # Gradient Descent Optimization
+│   ├── 1.ipynb                 # Batch & Stochastic GD for price prediction
+│   └── data/                   # Home prices dataset
+│
+├── 3/                          # TensorBoard Integration
+│   ├── 1.ipynb                 # MNIST with TensorBoard callback
+│   └── logs/                   # TensorBoard log files
+│
+├── 4/                          # GPU Training
+│   └── gpu.ipynb               # CIFAR-10 image classification with GPU
+│
+├── 5/                          # Customer Churn Prediction
+│   ├── Customer churn prediction using ANN.ipynb
+│   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
+│
+├── 6/                          # Regularization Techniques
+│   ├── Dropout Regularization.ipynb
+│   └── sonar_dataset.csv       # Sonar signals dataset
+│
+├── 7/                          # Handling Imbalanced Data
+│   ├── handling_imbalanced_data.ipynb
+│   └── customer_churn.csv
+│
+├── 8 Applications of computer vision/  # Computer Vision
+│   ├── 1 Image classification using CNN.ipynb
+│   ├── 2 Data augmentation to address overfitting.ipynb
+│   └── cifar-10-data/          # CIFAR-10 dataset
+│
+├── 9 Transfer Learning/        # Transfer Learning
+│   ├── 1 Transfer Learning.ipynb
+│   ├── goldfish.jpg            # Sample test image
+│   └── ImageNetLabels.txt      # ImageNet class labels
+│
+├── 10 Object detection using YOLO and pre trained model/  # Object Detection
+│   ├── 1 Object detection using YOLO and pre trained model.ipynb
+│   ├── original.jpg            # Sample images
+│   └── yolo26n.pt             # YOLO model weights
+│
+├── requirements.txt            # Python dependencies
+└── README.md                   # This file
 ```
 
-## Resources
+## Tutorial Topics
 
-- **Official Documentation**: https://www.tensorflow.org/
-- **Keras Documentation**: https://keras.io/
-- **TensorFlow Hub**: Pre-trained models and datasets
-- **TensorFlow Tutorials**: Official guides and tutorials
-- **Community**: Stack Overflow, GitHub Discussions, TensorFlow Forums
+### 1. TensorFlow Fundamentals
+- Loading and exploring the MNIST dataset
+- Understanding tensor shapes and data types
+- Image visualization and preprocessing
+- Building a simple neural network with Keras Sequential API
+- Data normalization and flattening
+- Model evaluation and confusion matrix visualization
 
-## Tips for Learning
+### 2. Gradient Descent Optimization
+- Implementing batch gradient descent from scratch
+- Implementing stochastic gradient descent
+- Feature scaling with MinMaxScaler
+- Cost function visualization over epochs
+- Comparing batch vs stochastic gradient descent performance
 
-1. **Start with Keras**: Use the high-level Keras API for beginners
-2. **Practice with Data**: Work with real datasets to understand preprocessing
-3. **Understand the Basics**: Learn about tensors, computation graphs, and backpropagation
-4. **Build Projects**: Apply concepts to real-world problems
-5. **Experiment**: Try different architectures and hyperparameters
-6. **Use Pre-trained Models**: Leverage transfer learning for faster development
+### 3. TensorBoard Integration
+- Setting up TensorBoard callbacks
+- Logging training metrics
+- Visualizing model performance
+- Running TensorBoard for analysis
 
-## Performance Optimization
+### 4. GPU Training
+- Utilizing GPU acceleration for faster training
+- CIFAR-10 image classification (10 classes)
+- Building deep convolutional neural networks
+- Handling color images (3-channel RGB)
 
-- Use batch processing for efficient computation
-- Leverage GPU/TPU acceleration for faster training
-- Implement data augmentation for better generalization
-- Use callbacks for early stopping and model checkpointing
-- Profile your code to identify bottlenecks
+### 5. Customer Churn Prediction
+- Binary classification with artificial neural networks
+- Feature encoding and preprocessing
+- Handling categorical variables
+- Model architecture design for tabular data
+- Evaluating classification performance
+
+### 6. Dropout Regularization
+- Understanding overfitting and underfitting
+- Implementing dropout layers
+- Training on sonar dataset (classification)
+- Comparing model performance with/without regularization
+
+### 7. Handling Imbalanced Data
+- Techniques for dealing with class imbalance
+- Resampling strategies (oversampling/undersampling)
+- Adjusting class weights
+- Evaluating models on imbalanced datasets
+
+### 8. Computer Vision Applications
+- **CNN Image Classification**: Building convolutional neural networks for CIFAR-10
+- **Data Augmentation**: Addressing overfitting through image transformations
+  - Rotation, flipping, zooming
+  - Width/height shifts
+  - Shear transformations
+
+### 9. Transfer Learning
+- Leveraging pre-trained models (ImageNet)
+- Feature extraction from pre-trained networks
+- Fine-tuning pre-trained models
+- Image classification with transfer learning
+
+### 10. Object Detection
+- YOLO (You Only Look Once) object detection
+- Loading and using pre-trained YOLO models
+- Detecting objects in images
+- Visualizing detection results with bounding boxes
+
+## Key Concepts Covered
+
+- **Neural Networks**: Dense layers, activation functions (ReLU, Sigmoid, Softmax)
+- **Optimization**: Gradient Descent, Adam, SGD optimizers
+- **Loss Functions**: Binary Crossentropy, Categorical Crossentropy
+- **Regularization**: Dropout, Batch Normalization
+- **Computer Vision**: CNN, Pooling, Data Augmentation
+- **Transfer Learning**: Pre-trained models, Feature Extraction
+- **Object Detection**: YOLO architecture
+- **Evaluation**: Confusion Matrix, Accuracy, Precision, Recall
+
+## Learning Path
+
+1. Start with **Section 1** for TensorFlow basics
+2. Progress to **Section 2** to understand gradient descent
+3. Learn TensorBoard in **Section 3** for model monitoring
+4. Move to **Sections 5-7** for practical classification problems
+5. Explore **Section 8** for computer vision fundamentals
+6. Advance to **Sections 9-10** for state-of-the-art techniques
+
+## Running the Notebooks
+
+```bash
+# Activate your virtual environment first
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Start Jupyter Notebook
+jupyter notebook
+
+# Navigate to the desired section and run the notebooks
+```
 
 ## License
 
 This repository is for educational purposes. TensorFlow itself is licensed under the Apache License 2.0.
-
----
-
-**Happy Learning with TensorFlow!** 🚀
